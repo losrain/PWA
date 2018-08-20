@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>first service worker</h3>
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534764026078&di=161f869ed782180ca187b4d1573dce97&imgtype=0&src=http%3A%2F%2Fimg.25pp.com%2Fuploadfile%2Fsoft%2Fimages%2F2015%2F0306%2F20150306093449173.jpg"/>
+    <script>
+        // 检查当前浏览器是否支持serviceWorker
+        if('serviceWorker' in navigator) {
+            // 如果支持，注册一个叫作sw.js的Service Worker文件
+            navigator.serviceWorker.register('./ws.js').then(function(registration){
+                // 注册成功；如果成功，则输出到控制台
+                console.log('ServiceWorker registration successful with scope: ',registration.scope);
+            }).catch(function(err){
+                // 注册失败；如果发生错误，捕获错误并输出到控制台
+                console.log('ServiceWorker registration failed: ', err);
+            })
+        }
+    </script>
+</body>
+</html>
